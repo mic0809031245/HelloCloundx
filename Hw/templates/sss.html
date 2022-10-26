@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Resp<<onsive Table</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"
-    
-</head>
-
+    <head>
+    <title>Homework</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
 <style>
 
 body{
 	margin:0;
 	padding:20px;
 	font-family: sans-serif;
+
 }
 
 *{
@@ -73,7 +72,8 @@ body{
 
 
 </style>
-        <table class="table">
+    <table class="table">
+
         <thead>
             <th>Student_id</th>
             <th>Student_Fname</th>
@@ -84,97 +84,21 @@ body{
             <th>Teacher_Fname</th>
             <th>Teacher_Lname</th>
         </thead>
+        
         <tbody>
+			{% for r in result %}
             <tr>
-                <td data-label="Student_id">6406022610040</td>
-                <td data-label="Student_Fname">Pawaris</td>
-                <td data-label="Student_Lname">Piririt</td>
-                <td data-label="Subject_id">060233113</td>
-                <td data-label="Subject_name">ADVANCED COMPUTER PROGRAMMIN</td>
-                <td data-label="Grade">C</td>
-                <td data-label="Teacher_Fname">Anirach</td>
-                <td data-label="Teacher_Lname">Mingkwan</td>
+                <td>{{ r.student_id }}</td>
+				<td>{{ r.f_name }}</td>
+				<td>{{ r.l_name }}</td>
+                <td>{{ r.subject_id }}</td>
+                <td>{{ r.subject_name }}</td>
+                <td>{{ r.grade }}</td>
+                <td>{{ r.tf_name }}</td>
+                <td>{{ r.tl_name }}</td>
+
             </tr>
-            <tr>
-                <td data-label="Student_id">6406022610040</td>
-                <td data-label="Student_Fname">Pawaris</td>
-                <td data-label="Student_Lname">Piririt</td>
-                <td data-label="Subject_id">060233112</td>
-                <td data-label="Subject_name">DATA ENGINEERING</td>
-                <td data-label="Grade">B</td>
-                <td data-label="Teacher_Fname">Sarayoot</td>
-                <td data-label="Teacher_Lname">Tanessakulwattana</td>
-            </tr>
-            <tr>
-                <td data-label="Student_id">6406022610040</td>
-                <td data-label="Student_Fname">Pawaris</td>
-                <td data-label="Student_Lname">Piririt</td>
-                <td data-label="Subject_id">080103034</td>
-                <td data-label="Subject_name">ENGLISH CONVERSATION</td>
-                <td data-label="Grade">A</td>
-                <td data-label="Teacher_Fname">Supalak</td>
-                <td data-label="Teacher_Lname">Nakhornsri</td>
-            </tr>
-            <tr>
-                <td data-label="Student_id">6406022610058</td>
-                <td data-label="Student_Fname">Piyawan</td>
-                <td data-label="Student_Lname">Nimpraprut</td>
-                <td data-label="Subject_id">060233113</td>
-                <td data-label="Subject_name">ADVANCED COMPUTER PROGRAMMIN</td>
-                <td data-label="Grade">C</td>
-                <td data-label="Teacher_Fname">Anirach</td>
-                <td data-label="Teacher_Lname">Mingkwan</td>
-            </tr>
-            <tr>
-                <td data-label="Student_id">6406022610058</td>
-                <td data-label="Student_Fname">Piyawan</td>
-                <td data-label="Student_Lname">Nimpraprut</td>
-                <td data-label="Subject_id">060233112</td>
-                <td data-label="Subject_name">DATA ENGINEERING</td>
-                <td data-label="Grade">A</td>
-                <td data-label="Teacher_Fname">Sarayoot</td>
-                <td data-label="Teacher_Lname">Tanessakulwattana</td>
-            </tr>
-            <tr>
-                <td data-label="Student_id">6406022610058</td>
-                <td data-label="Student_Fname">Piyawan</td>
-                <td data-label="Student_Lname">Nimpraprut</td>
-                <td data-label="Subject_id">080103034</td>
-                <td data-label="Subject_name">ENGLISH CONVERSATION</td>
-                <td data-label="Grade">A</td>
-                <td data-label="Teacher_Fname">Supalak</td>
-                <td data-label="Teacher_Lname">Nakhornsri</td>
-            </tr>
-            <tr>
-                <td data-label="Student_id">6406022610031</td>
-                <td data-label="Student_Fname">Papop</td>
-                <td data-label="Student_Lname">Sangeamsak</td>
-                <td data-label="Subject_id">060233113</td>
-                <td data-label="Subject_name">ADVANCED COMPUTER PROGRAMMIN</td>
-                <td data-label="Grade">A</td>
-                <td data-label="Teacher_Fname">Anirach</td>
-                <td data-label="Teacher_Lname">Mingkwan</td>
-            </tr>
-            <tr>
-                <td data-label="Student_id">6406022610031</td>
-                <td data-label="Student_Fname">Papop</td>
-                <td data-label="Student_Lname">Sangeamsak</td>
-                <td data-label="Subject_id">060233112</td>
-                <td data-label="Subject_name">DATA ENGINEERING</td>
-                <td data-label="Grade">A</td>
-                <td data-label="Teacher_Fname">Sarayoot</td>
-                <td data-label="Teacher_Lname">Tanessakulwattana</td>
-            </tr>
-            <tr>
-                <td data-label="Student_id">6406022610031</td>
-                <td data-label="Student_Fname">Papop</td>
-                <td data-label="Student_Lname">Sangeamsak</td>
-                <td data-label="Subject_id">080103034</td>
-                <td data-label="Subject_name">ENGLISH CONVERSATION</td>
-                <td data-label="Grade">A</td>
-                <td data-label="Teacher_Fname">Supalak</td>
-                <td data-label="Teacher_Lname">Nakhornsri</td>
-            </tr>
+        	{% endfor %}
 
         </tbody>
     </table>
