@@ -1,14 +1,15 @@
-from re import S
-from tkinter.tix import INTEGER
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import Column, Integer, String, Text, DateTime, Float, Boolean, PickleType,CHAR,VARCHAR
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
-engine = create_engine('sqlite:///user.sqlite3')
+engine = create_engine('postgresql://webadmin:IADica26129@node36962-pawaris.proen.app.ruk-com.cloud:5432/hw')
+#engine = create_engine('sqlite:///practice.sqlite3')
 Session = sessionmaker(bind=engine)
 session = Session()
+
 
 class Students(Base):
     __tablename__ = 'student'
@@ -20,8 +21,8 @@ class Students(Base):
 class Teachers(Base):
     __tablename__ = 'teacher'
     teacher_id = Column(CHAR(3), primary_key=True, nullable=False)
-    f_name = Column(VARCHAR(30), nullable=False)
-    l_name = Column(VARCHAR(30), nullable=False)
+    tf_name = Column(VARCHAR(30), nullable=False)
+    tl_name = Column(VARCHAR(30), nullable=False)
     e_mail = Column(VARCHAR(50), nullable=False)
 
 class Subjects(Base):
@@ -53,11 +54,11 @@ sb1 = Subjects(subject_id='060233113',subject_name='ADVANCED COMPUTER PROGRAMMIN
 sb2 = Subjects(subject_id='060233112',subject_name='DATA ENGINEERING',creadit=3,teacher_id='STS')
 sb3 = Subjects(subject_id='080103034',subject_name='ENGLISH CONVERSATION',creadit=3,teacher_id='SPK')
 
-tc1 = Teachers(teacher_id='AMK',f_name='Anirach',l_name='Mingkwan',e_mail='Anirach@email.kmutnb.ac.th')
-tc2 = Teachers(teacher_id='STS',f_name='Sarayoot',l_name='Tanessakulwattana',e_mail='Sarayoot@email.kmutnb.ac.th')
-tc3 = Teachers(teacher_id='SPK',f_name='Supalak',l_name='Nakhornsri',e_mail='Supalak@email.kmutnb.ac.th')
+tc1 = Teachers(teacher_id='AMK',tf_name='Anirach',tl_name='Mingkwan',e_mail='Anirach@email.kmutnb.ac.th')
+tc2 = Teachers(teacher_id='STS',tf_name='Sarayoot',tl_name='Tanessakulwattana',e_mail='Sarayoot@email.kmutnb.ac.th')
+tc3 = Teachers(teacher_id='SPK',tf_name='Supalak',tl_name='Nakhornsri',e_mail='Supalak@email.kmutnb.ac.th')
 
-st1 = Students(student_id='6406022610040',f_name='Pawaris',l_name='Piririt',e_mail='s6406022610040@email.kmutnb.ac.th')
+st1 = Students(student_id='6406022610040',f_name='Pawaris',l_name='Pitirit',e_mail='s6406022610040@email.kmutnb.ac.th')
 st2 = Students(student_id='6406022610058',f_name='Piyawan',l_name='Nimpraprut',e_mail='s6406022610058@email.kmutnb.ac.th')
 st3 = Students(student_id='6406022610031',f_name='Papop',l_name='Sangeamsak',e_mail='s6406022610031@email.kmutnb.ac.th')
 
@@ -69,5 +70,4 @@ for i in list:
     session.add(i)
 
 session.commit()
-
-
+#result = session.query(Students.student_id,Students.f_name,Students.l_name,Registration.subject_id,Subjects.subject_name,Registration.grade,Teachers.teacher_id,Teachers.tf_name,Teachers.tl_name).join(Registration,Students.student_id == Registration.student_id).join(Subjects,Registration.subject_id == Subjects.subject_id).join(Teachers,Subjects.teacher_id == Teachers.teacher_id).all()
